@@ -1,6 +1,6 @@
 package utils;
-
-import io.restassured.response.Response;  // ← RESTASSURED Response (not Selenium)
+//RESTASSURED Response
+import io.restassured.response.Response;  
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -27,12 +27,12 @@ public class SeleniumReporter {
                     ".success{border-left-color:#28a745}.error{border-left-color:#dc3545}" +
                     "pre{background:#f8f9fa;padding:15px;border-radius:5px;overflow:auto;max-height:400px;" +
                     "font-size:12px;line-height:1.4}</style></head>" +
-                    "<body><h1>🚀 QA Automation Results</h1><div id='logs'></div></body></html>");
+                    "<body><h1> QA Automation Results</h1><div id='logs'></div></body></html>");
             initialized = true;
         }
     }
 
-    // ✅ FIXED SIGNATURE: Takes RestAssured Response
+    // Takes RestAssured Response
     public static void logApiCall(String title, Response resp) {
         init();  // Lazy init
 
@@ -42,7 +42,7 @@ public class SeleniumReporter {
 
         String logHtml = String.format(
                 "<div class='log %s'>" +
-                        "<h3>📊 %s <span style='float:right;font-weight:bold;color:%s'>Status: %d</span></h3>" +
+                        "<h3> %s <span style='float:right;font-weight:bold;color:%s'>Status: %d</span></h3>" +
                         "<small>Time: %d ms | Size: %d bytes</small>" +
                         "<pre>%s</pre>" +
                         "</div>",
@@ -65,3 +65,4 @@ public class SeleniumReporter {
         }
     }
 }
+
